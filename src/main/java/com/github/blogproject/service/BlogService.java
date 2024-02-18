@@ -1,2 +1,19 @@
-package com.github.blogproject.service;public class BlogSevice {
+package com.github.blogproject.service;
+
+import com.github.blogproject.domain.Article;
+import com.github.blogproject.dto.AddArticleRequest;
+import com.github.blogproject.repository.BlogRepository;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@RequiredArgsConstructor
+@Service
+public class BlogService {
+
+    private final BlogRepository blogRepository;
+
+    public Article save (AddArticleRequest request) {
+        return blogRepository.save(request.toEntity());
+    }
 }
