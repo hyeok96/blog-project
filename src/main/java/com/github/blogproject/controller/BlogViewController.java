@@ -1,7 +1,7 @@
 package com.github.blogproject.controller;
 
 import com.github.blogproject.domain.Article;
-import com.github.blogproject.dto.ArticleListViewResponse;
+import com.github.blogproject.dto.ArticleViewResponse;
 import com.github.blogproject.service.BlogService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -19,8 +19,8 @@ public class BlogViewController {
 
     @GetMapping("/articles")
     public String getArticles (Model model) {
-        List<ArticleListViewResponse> articles = blogService.findAll().stream()
-                .map(ArticleListViewResponse::new)
+        List<ArticleViewResponse> articles = blogService.findAll().stream()
+                .map(ArticleViewResponse::new)
                 .toList();
 
         model.addAttribute("articles", articles);
@@ -31,7 +31,7 @@ public class BlogViewController {
     @GetMapping("/articles/{id}")
     public String getArticle(@PathVariable Long id, Model model) {
         Article article = blogService.findById(id);
-        model.addAttribute("article", new ArticleListViewResponse(article));
+        model.addAttribute("article", new ArticleViewResponse(article));
 
         return "article";
     }

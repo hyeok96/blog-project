@@ -8,14 +8,14 @@ import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
-public class ArticleListViewResponse {
+public class ArticleViewResponse {
 
     private final Long id;
     private final String title;
     private final String content;
     private final LocalDateTime createAt;
 
-    public ArticleListViewResponse(Article article) {
+    public ArticleViewResponse(Article article) {
         this.id = article.getId();
         this.title = article.getTitle();
         this.content = article.getContent();
