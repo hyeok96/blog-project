@@ -3,10 +3,12 @@ package com.github.blogproject.dto;
 import com.github.blogproject.domain.Article;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Getter
+@NoArgsConstructor(force = true)
 @AllArgsConstructor
 public class ArticleViewResponse {
 
