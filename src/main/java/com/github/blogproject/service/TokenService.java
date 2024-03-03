@@ -17,7 +17,7 @@ public class TokenService {
 
     public String createNewAccessToken(String refreshToken) throws Exception {
         if(!tokenProvider.validToken(refreshToken)) {
-            throw  new IllegalArgumentException("Unexpected token");
+            throw new IllegalArgumentException("Unexpected token");
         }
 
         Long userId = refreshTokenService.findByRefreshToken(refreshToken).getUserId();
